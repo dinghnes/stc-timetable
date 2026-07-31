@@ -230,13 +230,13 @@ window.STC_SAMPLE_DATA_115 = {
     "黃錦麗"
   ],
   "rooms": [
+    "電腦教室",
     "音樂教室",
     "英語教室",
     "自然教室1",
     "自然教室2",
     "圖書室1",
-    "圖書室2",
-    "電腦教室"
+    "圖書室2"
   ],
   "classCurriculums": [
     [
@@ -264,8 +264,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 34,
         "teacherName": "陳芋蓁",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       },
       {
         "courseIndex": 4,
@@ -302,8 +302,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 34,
         "teacherName": "陳芋蓁",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       },
       {
         "courseIndex": 13,
@@ -376,8 +376,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 34,
         "teacherName": "陳芋蓁",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       }
     ],
     [
@@ -423,8 +423,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 34,
         "teacherName": "陳芋蓁",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       }
     ],
     [
@@ -470,8 +470,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 28,
         "teacherName": "賴曉庭",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       }
     ],
     [
@@ -499,8 +499,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 36,
         "teacherName": "黃珮瑛",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 5,
+        "roomName": "圖書室1"
       },
       {
         "courseIndex": 0,
@@ -535,8 +535,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 28,
         "teacherName": "賴曉庭",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       }
     ],
     [
@@ -564,8 +564,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 33,
         "teacherName": "陳玫旭",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 5,
+        "roomName": "圖書室1"
       },
       {
         "courseIndex": 12,
@@ -573,8 +573,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 28,
         "teacherName": "賴曉庭",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       },
       {
         "courseIndex": 0,
@@ -611,8 +611,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 28,
         "teacherName": "賴曉庭",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       },
       {
         "courseIndex": 13,
@@ -676,8 +676,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 27,
         "teacherName": "許瓊華",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 2,
+        "roomName": "英語教室"
       },
       {
         "courseIndex": 6,
@@ -685,8 +685,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 3,
         "teacherIndex": 37,
         "teacherName": "黃翠玲",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 3,
+        "roomName": "自然教室1"
       },
       {
         "courseIndex": 13,
@@ -703,8 +703,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 28,
         "teacherName": "賴曉庭",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       },
       {
         "courseIndex": 9,
@@ -712,8 +712,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 26,
         "teacherName": "許小倩",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 0,
+        "roomName": "電腦教室"
       },
       {
         "courseIndex": 4,
@@ -732,8 +732,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 3,
         "teacherIndex": 37,
         "teacherName": "黃翠玲",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 3,
+        "roomName": "自然教室1"
       },
       {
         "courseIndex": 13,
@@ -768,8 +768,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 28,
         "teacherName": "賴曉庭",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       },
       {
         "courseIndex": 7,
@@ -777,8 +777,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 27,
         "teacherName": "許瓊華",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 2,
+        "roomName": "英語教室"
       },
       {
         "courseIndex": 9,
@@ -786,8 +786,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 26,
         "teacherName": "許小倩",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 0,
+        "roomName": "電腦教室"
       },
       {
         "courseIndex": 4,
@@ -851,8 +851,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 5,
         "teacherName": "戴仲毅",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 0,
+        "roomName": "電腦教室"
       },
       {
         "courseIndex": 6,
@@ -860,8 +860,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 3,
         "teacherIndex": 37,
         "teacherName": "黃翠玲",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 3,
+        "roomName": "自然教室1"
       },
       {
         "courseIndex": 7,
@@ -869,8 +869,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 27,
         "teacherName": "許瓊華",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 2,
+        "roomName": "英語教室"
       },
       {
         "courseIndex": 12,
@@ -878,8 +878,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 28,
         "teacherName": "賴曉庭",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       },
       {
         "courseIndex": 10,
@@ -907,8 +907,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 27,
         "teacherName": "許瓊華",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 2,
+        "roomName": "英語教室"
       },
       {
         "courseIndex": 5,
@@ -925,8 +925,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 3,
         "teacherIndex": 30,
         "teacherName": "郭若環",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 3,
+        "roomName": "自然教室1"
       },
       {
         "courseIndex": 13,
@@ -943,8 +943,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 28,
         "teacherName": "賴曉庭",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       },
       {
         "courseIndex": 10,
@@ -961,8 +961,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 5,
         "teacherName": "戴仲毅",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 0,
+        "roomName": "電腦教室"
       }
     ],
     [
@@ -990,8 +990,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 34,
         "teacherName": "陳芋蓁",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 0,
+        "roomName": "電腦教室"
       },
       {
         "courseIndex": 12,
@@ -999,8 +999,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 28,
         "teacherName": "賴曉庭",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       },
       {
         "courseIndex": 6,
@@ -1008,8 +1008,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 3,
         "teacherIndex": 30,
         "teacherName": "郭若環",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 3,
+        "roomName": "自然教室1"
       },
       {
         "courseIndex": 10,
@@ -1035,8 +1035,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 27,
         "teacherName": "許瓊華",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 2,
+        "roomName": "英語教室"
       },
       {
         "courseIndex": 2,
@@ -1064,8 +1064,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 17,
         "teacherName": "王佑竹",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 2,
+        "roomName": "英語教室"
       },
       {
         "courseIndex": 6,
@@ -1073,8 +1073,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 3,
         "teacherIndex": 21,
         "teacherName": "王詩雅",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 3,
+        "roomName": "自然教室1"
       },
       {
         "courseIndex": 4,
@@ -1100,8 +1100,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 28,
         "teacherName": "賴曉庭",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       },
       {
         "courseIndex": 10,
@@ -1127,8 +1127,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 5,
         "teacherName": "戴仲毅",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 0,
+        "roomName": "電腦教室"
       }
     ],
     [
@@ -1138,8 +1138,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 3,
         "teacherIndex": 21,
         "teacherName": "王詩雅",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 3,
+        "roomName": "自然教室1"
       },
       {
         "courseIndex": 13,
@@ -1156,8 +1156,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 17,
         "teacherName": "王佑竹",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 2,
+        "roomName": "英語教室"
       },
       {
         "courseIndex": 4,
@@ -1183,8 +1183,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 28,
         "teacherName": "賴曉庭",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       },
       {
         "courseIndex": 9,
@@ -1192,8 +1192,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 5,
         "teacherName": "戴仲毅",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 0,
+        "roomName": "電腦教室"
       },
       {
         "courseIndex": 10,
@@ -1221,8 +1221,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 3,
         "teacherIndex": 21,
         "teacherName": "王詩雅",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 3,
+        "roomName": "自然教室1"
       },
       {
         "courseIndex": 9,
@@ -1230,8 +1230,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 0,
         "teacherName": "丁浩展",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 0,
+        "roomName": "電腦教室"
       },
       {
         "courseIndex": 5,
@@ -1266,8 +1266,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 28,
         "teacherName": "賴曉庭",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       },
       {
         "courseIndex": 7,
@@ -1275,8 +1275,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 17,
         "teacherName": "王佑竹",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 2,
+        "roomName": "英語教室"
       },
       {
         "courseIndex": 4,
@@ -1322,8 +1322,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 28,
         "teacherName": "賴曉庭",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       },
       {
         "courseIndex": 6,
@@ -1331,8 +1331,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 3,
         "teacherIndex": 21,
         "teacherName": "王詩雅",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 3,
+        "roomName": "自然教室1"
       },
       {
         "courseIndex": 7,
@@ -1340,8 +1340,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 17,
         "teacherName": "王佑竹",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 2,
+        "roomName": "英語教室"
       },
       {
         "courseIndex": 4,
@@ -1367,8 +1367,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 0,
         "teacherName": "丁浩展",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 0,
+        "roomName": "電腦教室"
       }
     ],
     [
@@ -1423,8 +1423,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 28,
         "teacherName": "賴曉庭",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       },
       {
         "courseIndex": 4,
@@ -1441,8 +1441,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 3,
         "teacherIndex": 21,
         "teacherName": "王詩雅",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 3,
+        "roomName": "自然教室1"
       },
       {
         "courseIndex": 7,
@@ -1450,8 +1450,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 17,
         "teacherName": "王佑竹",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 2,
+        "roomName": "英語教室"
       },
       {
         "courseIndex": 2,
@@ -1468,8 +1468,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 0,
         "teacherName": "丁浩展",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 0,
+        "roomName": "電腦教室"
       }
     ],
     [
@@ -1488,8 +1488,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 3,
         "teacherIndex": 13,
         "teacherName": "林廷書",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 3,
+        "roomName": "自然教室1"
       },
       {
         "courseIndex": 7,
@@ -1497,8 +1497,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 2,
         "teacherIndex": 17,
         "teacherName": "王佑竹",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 2,
+        "roomName": "英語教室"
       },
       {
         "courseIndex": 5,
@@ -1515,8 +1515,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 28,
         "teacherName": "賴曉庭",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       },
       {
         "courseIndex": 8,
@@ -1533,8 +1533,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 0,
         "teacherName": "丁浩展",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 0,
+        "roomName": "電腦教室"
       },
       {
         "courseIndex": 4,
@@ -1553,8 +1553,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 3,
         "teacherIndex": 13,
         "teacherName": "林廷書",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 3,
+        "roomName": "自然教室1"
       },
       {
         "courseIndex": 1,
@@ -1598,8 +1598,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 0,
         "teacherName": "丁浩展",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 0,
+        "roomName": "電腦教室"
       },
       {
         "courseIndex": 8,
@@ -1616,8 +1616,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 2,
         "teacherIndex": 17,
         "teacherName": "王佑竹",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 2,
+        "roomName": "英語教室"
       },
       {
         "courseIndex": 4,
@@ -1634,8 +1634,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 28,
         "teacherName": "賴曉庭",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       }
     ],
     [
@@ -1672,8 +1672,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 3,
         "teacherIndex": 13,
         "teacherName": "林廷書",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 3,
+        "roomName": "自然教室1"
       },
       {
         "courseIndex": 7,
@@ -1681,8 +1681,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 2,
         "teacherIndex": 17,
         "teacherName": "王佑竹",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 2,
+        "roomName": "英語教室"
       },
       {
         "courseIndex": 4,
@@ -1699,8 +1699,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 0,
         "teacherName": "丁浩展",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 0,
+        "roomName": "電腦教室"
       },
       {
         "courseIndex": 12,
@@ -1708,8 +1708,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 28,
         "teacherName": "賴曉庭",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       }
     ],
     [
@@ -1719,8 +1719,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 28,
         "teacherName": "賴曉庭",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       },
       {
         "courseIndex": 5,
@@ -1746,8 +1746,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 0,
         "teacherName": "丁浩展",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 0,
+        "roomName": "電腦教室"
       },
       {
         "courseIndex": 7,
@@ -1755,8 +1755,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 2,
         "teacherIndex": 17,
         "teacherName": "王佑竹",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 2,
+        "roomName": "英語教室"
       },
       {
         "courseIndex": 6,
@@ -1764,8 +1764,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 3,
         "teacherIndex": 13,
         "teacherName": "林廷書",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 3,
+        "roomName": "自然教室1"
       },
       {
         "courseIndex": 4,
@@ -1802,8 +1802,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 0,
         "teacherName": "丁浩展",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 0,
+        "roomName": "電腦教室"
       },
       {
         "courseIndex": 5,
@@ -1829,8 +1829,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 3,
         "teacherIndex": 13,
         "teacherName": "林廷書",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 3,
+        "roomName": "自然教室1"
       },
       {
         "courseIndex": 7,
@@ -1838,8 +1838,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 2,
         "teacherIndex": 17,
         "teacherName": "王佑竹",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 2,
+        "roomName": "英語教室"
       },
       {
         "courseIndex": 4,
@@ -1856,8 +1856,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 28,
         "teacherName": "賴曉庭",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       }
     ],
     [
@@ -1885,8 +1885,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 3,
         "teacherIndex": 5,
         "teacherName": "戴仲毅",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 3,
+        "roomName": "自然教室1"
       },
       {
         "courseIndex": 9,
@@ -1894,8 +1894,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 0,
         "teacherName": "丁浩展",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 0,
+        "roomName": "電腦教室"
       },
       {
         "courseIndex": 13,
@@ -1912,8 +1912,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 2,
         "teacherIndex": 27,
         "teacherName": "許瓊華",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 2,
+        "roomName": "英語教室"
       },
       {
         "courseIndex": 4,
@@ -1939,8 +1939,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 34,
         "teacherName": "陳芋蓁",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       },
       {
         "courseIndex": 2,
@@ -1986,8 +1986,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 3,
         "teacherIndex": 5,
         "teacherName": "戴仲毅",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 3,
+        "roomName": "自然教室1"
       },
       {
         "courseIndex": 9,
@@ -1995,8 +1995,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 0,
         "teacherName": "丁浩展",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 0,
+        "roomName": "電腦教室"
       },
       {
         "courseIndex": 5,
@@ -2031,8 +2031,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 2,
         "teacherIndex": 27,
         "teacherName": "許瓊華",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 2,
+        "roomName": "英語教室"
       },
       {
         "courseIndex": 4,
@@ -2049,8 +2049,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 34,
         "teacherName": "陳芋蓁",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       }
     ],
     [
@@ -2069,8 +2069,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 0,
         "teacherName": "丁浩展",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 0,
+        "roomName": "電腦教室"
       },
       {
         "courseIndex": 13,
@@ -2096,8 +2096,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 3,
         "teacherIndex": 8,
         "teacherName": "李慧慈",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 3,
+        "roomName": "自然教室1"
       },
       {
         "courseIndex": 7,
@@ -2105,8 +2105,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 2,
         "teacherIndex": 27,
         "teacherName": "許瓊華",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 2,
+        "roomName": "英語教室"
       },
       {
         "courseIndex": 0,
@@ -2123,8 +2123,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 34,
         "teacherName": "陳芋蓁",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       }
     ],
     [
@@ -2134,8 +2134,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 3,
         "teacherIndex": 5,
         "teacherName": "戴仲毅",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 3,
+        "roomName": "自然教室1"
       },
       {
         "courseIndex": 7,
@@ -2143,8 +2143,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 2,
         "teacherIndex": 27,
         "teacherName": "許瓊華",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 2,
+        "roomName": "英語教室"
       },
       {
         "courseIndex": 12,
@@ -2152,8 +2152,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 34,
         "teacherName": "陳芋蓁",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       },
       {
         "courseIndex": 5,
@@ -2179,8 +2179,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 6,
         "teacherName": "朱振豪",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 5,
+        "roomName": "圖書室1"
       },
       {
         "courseIndex": 9,
@@ -2188,8 +2188,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 0,
         "teacherName": "丁浩展",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 0,
+        "roomName": "電腦教室"
       },
       {
         "courseIndex": 8,
@@ -2226,8 +2226,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 2,
         "teacherIndex": 27,
         "teacherName": "許瓊華",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 2,
+        "roomName": "英語教室"
       },
       {
         "courseIndex": 6,
@@ -2235,8 +2235,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 3,
         "teacherIndex": 25,
         "teacherName": "蔣任遠",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 3,
+        "roomName": "自然教室1"
       },
       {
         "courseIndex": 9,
@@ -2244,8 +2244,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 0,
         "teacherName": "丁浩展",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 0,
+        "roomName": "電腦教室"
       },
       {
         "courseIndex": 0,
@@ -2289,8 +2289,8 @@ window.STC_SAMPLE_DATA_115 = {
         "hours": 1,
         "teacherIndex": 34,
         "teacherName": "陳芋蓁",
-        "roomIndex": null,
-        "roomName": ""
+        "roomIndex": 1,
+        "roomName": "音樂教室"
       }
     ]
   ],
@@ -2328,8 +2328,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 34,
       "teacherName": "陳芋蓁",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "0_3_3": {
       "classId": 0,
@@ -2388,8 +2388,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 34,
       "teacherName": "陳芋蓁",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "1_3_1": {
       "classId": 1,
@@ -2496,8 +2496,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 34,
       "teacherName": "陳芋蓁",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "2_5_2": {
       "classId": 2,
@@ -2568,8 +2568,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 34,
       "teacherName": "陳芋蓁",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "3_5_3": {
       "classId": 3,
@@ -2652,8 +2652,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 28,
       "teacherName": "賴曉庭",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "5_1_2": {
       "classId": 5,
@@ -2688,8 +2688,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "閱讀教享閱",
       "teacherIndex": 36,
       "teacherName": "黃珮瑛",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 5,
+      "roomName": "圖書室1"
     },
     "5_3_4": {
       "classId": 5,
@@ -2748,8 +2748,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 28,
       "teacherName": "賴曉庭",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "6_1_2": {
       "classId": 6,
@@ -2784,8 +2784,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "閱讀教享閱",
       "teacherIndex": 33,
       "teacherName": "陳玫旭",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 5,
+      "roomName": "圖書室1"
     },
     "6_2_5": {
       "classId": 6,
@@ -2796,8 +2796,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 28,
       "teacherName": "賴曉庭",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "6_3_1": {
       "classId": 6,
@@ -2856,8 +2856,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 28,
       "teacherName": "賴曉庭",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "7_2_2": {
       "classId": 7,
@@ -2976,8 +2976,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 27,
       "teacherName": "許瓊華",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "8_2_3": {
       "classId": 8,
@@ -2988,8 +2988,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 37,
       "teacherName": "黃翠玲",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "8_2_7": {
       "classId": 8,
@@ -3024,8 +3024,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 28,
       "teacherName": "賴曉庭",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "8_4_1": {
       "classId": 8,
@@ -3072,8 +3072,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "資訊小達人",
       "teacherIndex": 26,
       "teacherName": "許小倩",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 0,
+      "roomName": "電腦教室"
     },
     "8_4_7": {
       "classId": 8,
@@ -3096,8 +3096,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 37,
       "teacherName": "黃翠玲",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "8_5_4": {
       "classId": 8,
@@ -3108,8 +3108,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 37,
       "teacherName": "黃翠玲",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "9_1_1": {
       "classId": 9,
@@ -3120,8 +3120,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 37,
       "teacherName": "黃翠玲",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "9_1_2": {
       "classId": 9,
@@ -3132,8 +3132,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 37,
       "teacherName": "黃翠玲",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "9_1_7": {
       "classId": 9,
@@ -3204,8 +3204,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 28,
       "teacherName": "賴曉庭",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "9_4_2": {
       "classId": 9,
@@ -3228,8 +3228,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 27,
       "teacherName": "許瓊華",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "9_4_5": {
       "classId": 9,
@@ -3240,8 +3240,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 37,
       "teacherName": "黃翠玲",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "9_4_6": {
       "classId": 9,
@@ -3252,8 +3252,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "資訊小達人",
       "teacherIndex": 26,
       "teacherName": "許小倩",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 0,
+      "roomName": "電腦教室"
     },
     "9_5_2": {
       "classId": 9,
@@ -3360,8 +3360,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "資訊小達人",
       "teacherIndex": 5,
       "teacherName": "戴仲毅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 0,
+      "roomName": "電腦教室"
     },
     "10_2_4": {
       "classId": 10,
@@ -3372,8 +3372,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 37,
       "teacherName": "黃翠玲",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "10_2_7": {
       "classId": 10,
@@ -3384,8 +3384,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 27,
       "teacherName": "許瓊華",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "10_3_1": {
       "classId": 10,
@@ -3432,8 +3432,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 37,
       "teacherName": "黃翠玲",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "10_4_4": {
       "classId": 10,
@@ -3444,8 +3444,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 37,
       "teacherName": "黃翠玲",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "10_4_5": {
       "classId": 10,
@@ -3456,8 +3456,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 28,
       "teacherName": "賴曉庭",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "10_4_6": {
       "classId": 10,
@@ -3504,8 +3504,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 27,
       "teacherName": "許瓊華",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "11_1_5": {
       "classId": 11,
@@ -3540,8 +3540,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 30,
       "teacherName": "郭若環",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "11_2_2": {
       "classId": 11,
@@ -3552,8 +3552,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 30,
       "teacherName": "郭若環",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "11_2_5": {
       "classId": 11,
@@ -3576,8 +3576,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 28,
       "teacherName": "賴曉庭",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "11_4_3": {
       "classId": 11,
@@ -3588,8 +3588,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 30,
       "teacherName": "郭若環",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "11_4_5": {
       "classId": 11,
@@ -3624,8 +3624,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "資訊小達人",
       "teacherIndex": 5,
       "teacherName": "戴仲毅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 0,
+      "roomName": "電腦教室"
     },
     "11_5_2": {
       "classId": 11,
@@ -3684,8 +3684,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "資訊小達人",
       "teacherIndex": 34,
       "teacherName": "陳芋蓁",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 0,
+      "roomName": "電腦教室"
     },
     "12_2_1": {
       "classId": 12,
@@ -3696,8 +3696,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 28,
       "teacherName": "賴曉庭",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "12_2_3": {
       "classId": 12,
@@ -3708,8 +3708,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 30,
       "teacherName": "郭若環",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "12_2_4": {
       "classId": 12,
@@ -3744,8 +3744,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 27,
       "teacherName": "許瓊華",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "12_4_6": {
       "classId": 12,
@@ -3780,8 +3780,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 30,
       "teacherName": "郭若環",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "12_5_2": {
       "classId": 12,
@@ -3792,8 +3792,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 30,
       "teacherName": "郭若環",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "12_5_3": {
       "classId": 12,
@@ -3840,8 +3840,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 17,
       "teacherName": "王佑竹",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "13_2_2": {
       "classId": 13,
@@ -3852,8 +3852,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 21,
       "teacherName": "王詩雅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "13_2_3": {
       "classId": 13,
@@ -3912,8 +3912,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 28,
       "teacherName": "賴曉庭",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "13_4_5": {
       "classId": 13,
@@ -3924,8 +3924,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 21,
       "teacherName": "王詩雅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "13_4_6": {
       "classId": 13,
@@ -3936,8 +3936,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 21,
       "teacherName": "王詩雅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "13_5_1": {
       "classId": 13,
@@ -3972,8 +3972,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "資訊小達人",
       "teacherIndex": 5,
       "teacherName": "戴仲毅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 0,
+      "roomName": "電腦教室"
     },
     "14_1_3": {
       "classId": 14,
@@ -3984,8 +3984,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 21,
       "teacherName": "王詩雅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "14_1_4": {
       "classId": 14,
@@ -3996,8 +3996,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 21,
       "teacherName": "王詩雅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "14_1_5": {
       "classId": 14,
@@ -4020,8 +4020,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 17,
       "teacherName": "王佑竹",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "14_2_3": {
       "classId": 14,
@@ -4068,8 +4068,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 28,
       "teacherName": "賴曉庭",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "14_4_1": {
       "classId": 14,
@@ -4092,8 +4092,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "資訊小達人",
       "teacherIndex": 5,
       "teacherName": "戴仲毅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 0,
+      "roomName": "電腦教室"
     },
     "14_4_4": {
       "classId": 14,
@@ -4104,8 +4104,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 21,
       "teacherName": "王詩雅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "14_4_6": {
       "classId": 14,
@@ -4152,8 +4152,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 21,
       "teacherName": "王詩雅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "15_1_4": {
       "classId": 15,
@@ -4164,8 +4164,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "資訊小達人",
       "teacherIndex": 0,
       "teacherName": "丁浩展",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 0,
+      "roomName": "電腦教室"
     },
     "15_1_5": {
       "classId": 15,
@@ -4224,8 +4224,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 28,
       "teacherName": "賴曉庭",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "15_3_3": {
       "classId": 15,
@@ -4236,8 +4236,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 17,
       "teacherName": "王佑竹",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "15_4_1": {
       "classId": 15,
@@ -4248,8 +4248,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 21,
       "teacherName": "王詩雅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "15_4_2": {
       "classId": 15,
@@ -4260,8 +4260,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 21,
       "teacherName": "王詩雅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "15_4_5": {
       "classId": 15,
@@ -4356,8 +4356,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 28,
       "teacherName": "賴曉庭",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "16_2_1": {
       "classId": 16,
@@ -4392,8 +4392,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 21,
       "teacherName": "王詩雅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "16_2_4": {
       "classId": 16,
@@ -4404,8 +4404,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 21,
       "teacherName": "王詩雅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "16_2_5": {
       "classId": 16,
@@ -4416,8 +4416,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 17,
       "teacherName": "王佑竹",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "16_3_1": {
       "classId": 16,
@@ -4488,8 +4488,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 21,
       "teacherName": "王詩雅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "16_4_5": {
       "classId": 16,
@@ -4536,8 +4536,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "資訊小達人",
       "teacherIndex": 0,
       "teacherName": "丁浩展",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 0,
+      "roomName": "電腦教室"
     },
     "17_1_1": {
       "classId": 17,
@@ -4644,8 +4644,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 28,
       "teacherName": "賴曉庭",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "17_2_4": {
       "classId": 17,
@@ -4668,8 +4668,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 21,
       "teacherName": "王詩雅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "17_2_6": {
       "classId": 17,
@@ -4680,8 +4680,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 21,
       "teacherName": "王詩雅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "17_3_1": {
       "classId": 17,
@@ -4716,8 +4716,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 21,
       "teacherName": "王詩雅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "17_4_1": {
       "classId": 17,
@@ -4752,8 +4752,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 17,
       "teacherName": "王佑竹",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "17_4_4": {
       "classId": 17,
@@ -4812,8 +4812,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "資訊小達人",
       "teacherIndex": 0,
       "teacherName": "丁浩展",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 0,
+      "roomName": "電腦教室"
     },
     "18_1_2": {
       "classId": 18,
@@ -4836,8 +4836,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 13,
       "teacherName": "林廷書",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "18_1_4": {
       "classId": 18,
@@ -4848,8 +4848,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 13,
       "teacherName": "林廷書",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "18_1_6": {
       "classId": 18,
@@ -4860,8 +4860,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 17,
       "teacherName": "王佑竹",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "18_2_3": {
       "classId": 18,
@@ -4896,8 +4896,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 28,
       "teacherName": "賴曉庭",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "18_3_1": {
       "classId": 18,
@@ -4932,8 +4932,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "資訊小達人",
       "teacherIndex": 0,
       "teacherName": "丁浩展",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 0,
+      "roomName": "電腦教室"
     },
     "18_4_2": {
       "classId": 18,
@@ -4944,8 +4944,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 17,
       "teacherName": "王佑竹",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "18_4_6": {
       "classId": 18,
@@ -4968,8 +4968,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 13,
       "teacherName": "林廷書",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "18_5_4": {
       "classId": 18,
@@ -5004,8 +5004,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 13,
       "teacherName": "林廷書",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "19_1_2": {
       "classId": 19,
@@ -5100,8 +5100,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "資訊小達人",
       "teacherIndex": 0,
       "teacherName": "丁浩展",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 0,
+      "roomName": "電腦教室"
     },
     "19_2_5": {
       "classId": 19,
@@ -5160,8 +5160,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 17,
       "teacherName": "王佑竹",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "19_4_1": {
       "classId": 19,
@@ -5220,8 +5220,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 13,
       "teacherName": "林廷書",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "19_4_6": {
       "classId": 19,
@@ -5232,8 +5232,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 13,
       "teacherName": "林廷書",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "19_5_2": {
       "classId": 19,
@@ -5256,8 +5256,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 17,
       "teacherName": "王佑竹",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "19_5_5": {
       "classId": 19,
@@ -5268,8 +5268,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 28,
       "teacherName": "賴曉庭",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "19_5_7": {
       "classId": 19,
@@ -5340,8 +5340,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 13,
       "teacherName": "林廷書",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "20_2_6": {
       "classId": 20,
@@ -5352,8 +5352,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 17,
       "teacherName": "王佑竹",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "20_3_3": {
       "classId": 20,
@@ -5376,8 +5376,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 13,
       "teacherName": "林廷書",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "20_4_2": {
       "classId": 20,
@@ -5388,8 +5388,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 13,
       "teacherName": "林廷書",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "20_4_4": {
       "classId": 20,
@@ -5400,8 +5400,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "資訊小達人",
       "teacherIndex": 0,
       "teacherName": "丁浩展",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 0,
+      "roomName": "電腦教室"
     },
     "20_4_7": {
       "classId": 20,
@@ -5412,8 +5412,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 28,
       "teacherName": "賴曉庭",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "20_5_2": {
       "classId": 20,
@@ -5436,8 +5436,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 17,
       "teacherName": "王佑竹",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "20_5_5": {
       "classId": 20,
@@ -5472,8 +5472,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 28,
       "teacherName": "賴曉庭",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "21_1_5": {
       "classId": 21,
@@ -5520,8 +5520,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "資訊小達人",
       "teacherIndex": 0,
       "teacherName": "丁浩展",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 0,
+      "roomName": "電腦教室"
     },
     "21_2_7": {
       "classId": 21,
@@ -5532,8 +5532,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 17,
       "teacherName": "王佑竹",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "21_3_3": {
       "classId": 21,
@@ -5544,8 +5544,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 13,
       "teacherName": "林廷書",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "21_3_4": {
       "classId": 21,
@@ -5556,8 +5556,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 13,
       "teacherName": "林廷書",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "21_4_2": {
       "classId": 21,
@@ -5580,8 +5580,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 17,
       "teacherName": "王佑竹",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "21_4_5": {
       "classId": 21,
@@ -5628,8 +5628,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 13,
       "teacherName": "林廷書",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "21_5_6": {
       "classId": 21,
@@ -5664,8 +5664,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "資訊小達人",
       "teacherIndex": 0,
       "teacherName": "丁浩展",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 0,
+      "roomName": "電腦教室"
     },
     "22_1_7": {
       "classId": 22,
@@ -5712,8 +5712,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 13,
       "teacherName": "林廷書",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "22_2_6": {
       "classId": 22,
@@ -5724,8 +5724,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 13,
       "teacherName": "林廷書",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "22_3_1": {
       "classId": 22,
@@ -5736,8 +5736,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 17,
       "teacherName": "王佑竹",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "22_3_3": {
       "classId": 22,
@@ -5796,8 +5796,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 28,
       "teacherName": "賴曉庭",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "22_5_3": {
       "classId": 22,
@@ -5808,8 +5808,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 13,
       "teacherName": "林廷書",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "22_5_6": {
       "classId": 22,
@@ -5820,8 +5820,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 17,
       "teacherName": "王佑竹",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "23_1_3": {
       "classId": 23,
@@ -5880,8 +5880,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 5,
       "teacherName": "戴仲毅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "23_2_2": {
       "classId": 23,
@@ -5892,8 +5892,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 5,
       "teacherName": "戴仲毅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "23_2_5": {
       "classId": 23,
@@ -5904,8 +5904,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "資訊小達人",
       "teacherIndex": 0,
       "teacherName": "丁浩展",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 0,
+      "roomName": "電腦教室"
     },
     "23_2_6": {
       "classId": 23,
@@ -5928,8 +5928,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 27,
       "teacherName": "許瓊華",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "23_3_4": {
       "classId": 23,
@@ -5976,8 +5976,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 5,
       "teacherName": "戴仲毅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "23_4_6": {
       "classId": 23,
@@ -5988,8 +5988,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 34,
       "teacherName": "陳芋蓁",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "23_5_1": {
       "classId": 23,
@@ -6024,8 +6024,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 27,
       "teacherName": "許瓊華",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "24_1_2": {
       "classId": 24,
@@ -6072,8 +6072,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 5,
       "teacherName": "戴仲毅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "24_1_6": {
       "classId": 24,
@@ -6084,8 +6084,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 5,
       "teacherName": "戴仲毅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "24_2_1": {
       "classId": 24,
@@ -6096,8 +6096,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "資訊小達人",
       "teacherIndex": 0,
       "teacherName": "丁浩展",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 0,
+      "roomName": "電腦教室"
     },
     "24_2_2": {
       "classId": 24,
@@ -6180,8 +6180,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 27,
       "teacherName": "許瓊華",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "24_3_2": {
       "classId": 24,
@@ -6252,8 +6252,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 5,
       "teacherName": "戴仲毅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "24_4_5": {
       "classId": 24,
@@ -6276,8 +6276,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 27,
       "teacherName": "許瓊華",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "24_5_2": {
       "classId": 24,
@@ -6324,8 +6324,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 34,
       "teacherName": "陳芋蓁",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "25_1_1": {
       "classId": 25,
@@ -6348,8 +6348,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "資訊小達人",
       "teacherIndex": 0,
       "teacherName": "丁浩展",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 0,
+      "roomName": "電腦教室"
     },
     "25_1_6": {
       "classId": 25,
@@ -6384,8 +6384,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 8,
       "teacherName": "李慧慈",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "25_2_4": {
       "classId": 25,
@@ -6396,8 +6396,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 8,
       "teacherName": "李慧慈",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "25_2_5": {
       "classId": 25,
@@ -6408,8 +6408,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 27,
       "teacherName": "許瓊華",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "25_3_1": {
       "classId": 25,
@@ -6468,8 +6468,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 8,
       "teacherName": "李慧慈",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "25_5_4": {
       "classId": 25,
@@ -6480,8 +6480,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 34,
       "teacherName": "陳芋蓁",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "25_5_6": {
       "classId": 25,
@@ -6492,8 +6492,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 27,
       "teacherName": "許瓊華",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "26_1_1": {
       "classId": 26,
@@ -6504,8 +6504,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 5,
       "teacherName": "戴仲毅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "26_1_2": {
       "classId": 26,
@@ -6516,8 +6516,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 5,
       "teacherName": "戴仲毅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "26_1_5": {
       "classId": 26,
@@ -6528,8 +6528,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 27,
       "teacherName": "許瓊華",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "26_1_6": {
       "classId": 26,
@@ -6540,8 +6540,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 34,
       "teacherName": "陳芋蓁",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "26_2_1": {
       "classId": 26,
@@ -6576,8 +6576,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "閱讀教享閱",
       "teacherIndex": 6,
       "teacherName": "朱振豪",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 5,
+      "roomName": "圖書室1"
     },
     "26_3_3": {
       "classId": 26,
@@ -6588,8 +6588,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 27,
       "teacherName": "許瓊華",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "26_4_2": {
       "classId": 26,
@@ -6600,8 +6600,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "資訊小達人",
       "teacherIndex": 0,
       "teacherName": "丁浩展",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 0,
+      "roomName": "電腦教室"
     },
     "26_4_3": {
       "classId": 26,
@@ -6636,8 +6636,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 5,
       "teacherName": "戴仲毅",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "26_5_1": {
       "classId": 26,
@@ -6708,8 +6708,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 27,
       "teacherName": "許瓊華",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "27_1_5": {
       "classId": 27,
@@ -6720,8 +6720,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 25,
       "teacherName": "蔣任遠",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "27_2_2": {
       "classId": 27,
@@ -6732,8 +6732,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "資訊小達人",
       "teacherIndex": 0,
       "teacherName": "丁浩展",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 0,
+      "roomName": "電腦教室"
     },
     "27_2_4": {
       "classId": 27,
@@ -6780,8 +6780,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "英語",
       "teacherIndex": 27,
       "teacherName": "許瓊華",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 2,
+      "roomName": "英語教室"
     },
     "27_4_3": {
       "classId": 27,
@@ -6792,8 +6792,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 25,
       "teacherName": "蔣任遠",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "27_4_4": {
       "classId": 27,
@@ -6804,8 +6804,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "自然科學",
       "teacherIndex": 25,
       "teacherName": "蔣任遠",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 3,
+      "roomName": "自然教室1"
     },
     "27_4_5": {
       "classId": 27,
@@ -6864,8 +6864,8 @@ window.STC_SAMPLE_DATA_115 = {
       "courseName": "音樂",
       "teacherIndex": 34,
       "teacherName": "陳芋蓁",
-      "roomIndex": null,
-      "roomName": ""
+      "roomIndex": 1,
+      "roomName": "音樂教室"
     },
     "27_5_7": {
       "classId": 27,

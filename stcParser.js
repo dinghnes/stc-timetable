@@ -33,6 +33,15 @@ window.StcParser = (function () {
     return textLines.map(l => l.trim()).filter(l => l.length > 0);
   }
 
+  function matchRoomForCourse(cName) {
+    if (cName.includes('資訊') || cName.includes('電腦')) return '電腦教室';
+    if (cName.includes('音樂')) return '音樂教室';
+    if (cName.includes('自然')) return '自然教室1';
+    if (cName.includes('英語')) return '英語教室';
+    if (cName.includes('閱讀')) return '圖書室1';
+    return '';
+  }
+
   function parseClassCur(curLines, courses, teachers, rooms, classCount) {
     const curriculums = [];
     for (let i = 0; i < classCount; i++) {
@@ -77,14 +86,18 @@ window.StcParser = (function () {
         const finalTeacherIndex = teacherIndex !== null ? teacherIndex : htIndex;
 
         if (hours > 0) {
+          const cName = courses[k] || `科目${k + 1}`;
+          const autoRoomName = matchRoomForCourse(cName);
+          const autoRoomIndex = autoRoomName ? rooms.indexOf(autoRoomName) : roomIndex;
+
           courseAssignments.push({
             courseIndex: k,
-            courseName: courses[k] || `科目${k + 1}`,
+            courseName: cName,
             hours: hours,
             teacherIndex: finalTeacherIndex,
             teacherName: finalTeacherIndex !== null ? (teachers[finalTeacherIndex] || `教師${finalTeacherIndex + 1}`) : '',
-            roomIndex: roomIndex,
-            roomName: roomIndex !== null ? (rooms[roomIndex] || `教室${roomIndex + 1}`) : ''
+            roomIndex: autoRoomIndex >= 0 ? autoRoomIndex : null,
+            roomName: autoRoomName || (roomIndex !== null ? (rooms[roomIndex] || '') : '')
           });
         }
       }
@@ -93,9 +106,6 @@ window.StcParser = (function () {
     return curriculums;
   }
 
-  /**
-   * Parse CSV File Text (e.g. 完整課表.csv)
-   */
   function parseCSVText(csvContent) {
     const lines = csvContent.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
     if (lines.length <= 1) return null;
@@ -104,7 +114,6 @@ window.StcParser = (function () {
     const periodMap = { '第一節': 1, '第二節': 2, '第三節': 3, '第四節': 4, '第五節': 5, '第六節': 6, '第七節': 7, '第八節': 8, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7 };
     const gradeMap = { '一年級': 1, '二年級': 2, '三年級': 3, '四年級': 4, '五年級': 5, '六年級': 6, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6 };
 
-    // Helper to strip quotes
     const clean = s => s ? s.replace(/^"/, '').replace(/"$/, '').trim() : '';
 
     const rows = [];
@@ -144,7 +153,7 @@ window.StcParser = (function () {
 
     const teachers = Array.from(teacherSet).sort();
     const courses = Array.from(courseSet).sort();
-    const rooms = ["音樂教室", "英語教室", "自然教室1", "自然教室2", "圖書室1", "圖書室2", "電腦教室"];
+    const rooms = ["電腦教室", "音樂教室", "英語教室", "自然教室1", "自然教室2", "圖書室1", "圖書室2"];
 
     const classIdMap = {};
     classes.forEach(c => classIdMap[c.name] = c.id);
@@ -152,12 +161,17 @@ window.StcParser = (function () {
     teachers.forEach((t, i) => teacherIdMap[t] = i);
     const courseIdMap = {};
     courses.forEach((c, i) => courseIdMap[c] = i);
+    const roomIdMap = {};
+    rooms.forEach((r, i) => roomIdMap[r] = i);
 
     const scheduleMap = {};
     rows.forEach(r => {
       const cid = classIdMap[r.className];
       const tid = teacherIdMap[r.tName];
       const cidx = courseIdMap[r.cName];
+
+      const rName = matchRoomForCourse(r.cName);
+      const rid = rName ? roomIdMap[rName] : null;
 
       if (cid !== undefined) {
         const slotKey = `${cid}_${r.day}_${r.period}`;
@@ -170,14 +184,14 @@ window.StcParser = (function () {
           courseName: r.cName,
           teacherIndex: tid,
           teacherName: r.tName,
-          roomIndex: null,
-          roomName: ''
+          roomIndex: rid,
+          roomName: rName
         };
       }
     });
 
     return {
-      academicYear: '匯入課表',
+      academicYear: '115-1',
       schoolName: '西寧國小',
       classes, courses, teachers, rooms,
       classCurriculums: [],
