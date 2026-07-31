@@ -1,5 +1,5 @@
 /**
- * STC Smart Timetable Application Logic (UI, State, Drag & Drop, Renderers)
+ * STC Smart Timetable Application Logic (UI, State, Drag & Drop, Renderers, Auto-Save)
  */
 
 (function () {
@@ -8,6 +8,9 @@
   let scheduleMap = {};
   let teacherUnavailability = {};
   let activeTab = 'master-view';
+
+  const STORAGE_KEY_MAP = 'STC_SAVED_SCHEDULE_MAP_115';
+  const STORAGE_KEY_UNAVAIL = 'STC_SAVED_UNAVAILABILITY_115';
 
   // Selection states
   let selectedClassId = 0;
@@ -33,7 +36,7 @@
     initTabs();
     initEventListeners();
 
-    // Auto-load sample 114-1 dataset with pre-scheduled ClassTab map!
+    // Auto-load 115-1 dataset
     const sample = StcParser.getSampleData();
     if (sample) {
       loadDataset(sample);
@@ -88,29 +91,65 @@
     document.getElementById('btn-print-master').addEventListener('click', () => window.print());
 
     document.getElementById('btn-load-sample-114').addEventListener('click', () => {
-      const sample = StcParser.getSampleData();
-      if (sample) {
-        loadDataset(sample);
-        alert('已成功載入 114-1 學期既存排課資料（411 節已排課與教師課表）！');
+      if (confirm('確定要重新恢復為 115-1 官方原始課表嗎？（現有修改將重置）')) {
+        localStorage.removeItem(STORAGE_KEY_MAP);
+        localStorage.removeItem(STORAGE_KEY_UNAVAIL);
+        teacherUnavailability = {};
+        const sample = StcParser.getSampleData();
+        if (sample) {
+          loadDataset(sample);
+          alert('已成功恢復為 115-1 官方原始課表！');
+        }
       }
     });
 
     document.getElementById('stc-file-input').addEventListener('change', handleFileImport);
   }
 
+  // Persistent LocalStorage Save & Load
+  function saveToLocalStorage() {
+    try {
+      localStorage.setItem(STORAGE_KEY_MAP, JSON.stringify(scheduleMap));
+      localStorage.setItem(STORAGE_KEY_UNAVAIL, JSON.stringify(teacherUnavailability));
+    } catch (e) {
+      console.warn('LocalStorage save failed:', e);
+    }
+  }
+
+  function loadFromLocalStorage() {
+    try {
+      const savedMap = localStorage.getItem(STORAGE_KEY_MAP);
+      const savedUnavail = localStorage.getItem(STORAGE_KEY_UNAVAIL);
+
+      if (savedUnavail) {
+        teacherUnavailability = JSON.parse(savedUnavail);
+      }
+      if (savedMap) {
+        return JSON.parse(savedMap);
+      }
+    } catch (e) {
+      console.warn('LocalStorage load failed:', e);
+    }
+    return null;
+  }
+
   function loadDataset(data) {
     dataset = data;
     populateDropdowns();
 
-    // Use pre-scheduled map from ClassTab if available!
-    if (data.preScheduledMap && Object.keys(data.preScheduledMap).length > 0) {
+    // Check if user has saved custom edits in LocalStorage!
+    const localSavedMap = loadFromLocalStorage();
+
+    if (localSavedMap && Object.keys(localSavedMap).length > 0) {
+      scheduleMap = localSavedMap;
+    } else if (data.preScheduledMap && Object.keys(data.preScheduledMap).length > 0) {
       scheduleMap = data.preScheduledMap;
-      const conflicts = SchedulerEngine.detectConflicts(scheduleMap, teacherUnavailability);
-      updateBadges(conflicts);
     } else {
       runAutoScheduler(false);
     }
 
+    const conflicts = SchedulerEngine.detectConflicts(scheduleMap, teacherUnavailability);
+    updateBadges(conflicts);
     renderActiveView();
   }
 
@@ -141,6 +180,7 @@
     const res = SchedulerEngine.autoSchedule(dataset.classes, dataset.classCurriculums, teacherUnavailability);
     scheduleMap = res.scheduleMap;
 
+    saveToLocalStorage();
     updateBadges(res.conflicts);
     renderActiveView();
 
@@ -157,13 +197,14 @@
     `;
 
     if (showAlert && res.stats.conflictCount === 0) {
-      alert(`智慧重新排課成功！在 ${res.stats.timeTakenMs}ms 內完成 ${res.stats.totalLessons} 節課程排定，全校 0 衝堂！`);
+      alert(`智慧重新排課成功！在 ${res.stats.timeTakenMs}ms 內完成 ${res.stats.totalLessons} 節課程排定，全校 0 衝堂！已自動存檔！`);
     }
   }
 
   function resetSchedule() {
     if (confirm('確定要清空全校課表嗎？')) {
       scheduleMap = {};
+      saveToLocalStorage();
       updateBadges();
       renderActiveView();
     }
@@ -340,6 +381,7 @@
           delete scheduleMap[draggedSource.slotKey];
         }
 
+        saveToLocalStorage(); // Auto save on drag & drop!
         const conflicts = SchedulerEngine.detectConflicts(scheduleMap, teacherUnavailability);
         updateBadges(conflicts);
         renderClassGrid();
@@ -458,6 +500,7 @@
           teacherUnavailability[uKey] = true;
         }
 
+        saveToLocalStorage(); // Save unavailability rules automatically!
         renderUnavailabilityGrid();
         const conflicts = SchedulerEngine.detectConflicts(scheduleMap, teacherUnavailability);
         updateBadges(conflicts);
@@ -515,7 +558,7 @@
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
-    link.download = `STC_全校課表匯出_${new Date().toISOString().slice(0, 10)}.csv`;
+    link.download = `西寧國小_115-1_課表匯出_${new Date().toISOString().slice(0, 10)}.csv`;
     link.click();
   }
 
@@ -565,7 +608,7 @@
             : dataset.classCurriculums;
 
           const preScheduledMap = classTabLines.length > 0
-            ? StcParser.parseClassTab(classTabLines, classes, courses, teachers, rooms, classCurriculums)
+            ? StcParser.parseClassTab(classTabLines, classes, courses, teachers, rooms, classCurriculums, classCurLines)
             : null;
 
           const customDataset = {
@@ -575,7 +618,8 @@
           };
 
           loadDataset(customDataset);
-          status.innerText = `✔ 匯入成功！已還原 ${Object.keys(preScheduledMap || {}).length} 節既存課表與 ${teachers.length} 位教師課表！`;
+          saveToLocalStorage();
+          status.innerText = `✔ 匯入成功！已還原 ${Object.keys(preScheduledMap || {}).length} 節既存課表與 ${teachers.length} 位教師課表！已自動存檔！`;
         }
       };
       reader.readAsText(file, 'big5');
