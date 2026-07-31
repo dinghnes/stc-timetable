@@ -1,12 +1,9 @@
 /**
  * STC Class Scheduling File Parser & Decoder
- * Decodes traditional STC (v3.77) ASCII-offset data files into modern JSON schema.
+ * Decodes traditional STC (v3.77) ASCII-offset data files & 115-1 Official Timetable CSV
  */
 
 window.StcParser = (function () {
-  /**
-   * Helper to convert ASCII character offset back to integer index
-   */
   function decodeByteCode(charCode) {
     if (typeof charCode === 'string') {
       charCode = charCode.charCodeAt(0);
@@ -15,9 +12,6 @@ window.StcParser = (function () {
     return val >= 0 ? val : 0;
   }
 
-  /**
-   * Parse ClassNum file content
-   */
   function parseClassNum(lines) {
     const cleanLines = lines.map(l => l.trim()).filter(l => l.length > 0);
     if (cleanLines.length < 6) {
@@ -35,28 +29,21 @@ window.StcParser = (function () {
     return { gradeCounts, classes };
   }
 
-  /**
-   * Parse single-line name text files (CoursNam, TeachNam, RoomNam)
-   */
   function parseNameList(textLines) {
     return textLines.map(l => l.trim()).filter(l => l.length > 0);
   }
 
-  /**
-   * Parse ClassCur file (Curriculum assignments per class & Homeroom teacher resolution)
-   */
   function parseClassCur(curLines, courses, teachers, rooms, classCount) {
     const curriculums = [];
     for (let i = 0; i < classCount; i++) {
       const lineHours = curLines[2 * i] || '';
       const lineAssign = curLines[2 * i + 1] || '';
 
-      // Resolve Homeroom Teacher from Capital letter in assign line
       let htIndex = null;
       for (let chIdx = 0; chIdx < lineAssign.length; chIdx++) {
         const code = lineAssign.charCodeAt(chIdx);
-        if (code >= 65 && code <= 90) { // 'A'..'Z'
-          const tIdx = code - 55 - 1; // 0-based index
+        if (code >= 65 && code <= 90) {
+          const tIdx = code - 55 - 1;
           if (tIdx >= 0 && tIdx < teachers.length) {
             htIndex = tIdx;
             break;
@@ -106,85 +93,10 @@ window.StcParser = (function () {
     return curriculums;
   }
 
-  /**
-   * Parse pre-scheduled ClassTab lines with complete Homeroom + Specialist teacher resolution
-   */
-  function parseClassTab(tabLines, classes, courses, teachers, rooms, classCurriculums, curLines = []) {
-    const scheduleMap = {};
-    classes.forEach((cls, cIdx) => {
-      let htIndex = null;
-      if (2 * cIdx + 1 < curLines.length) {
-        const lineAssign = curLines[2 * cIdx + 1];
-        for (let chIdx = 0; chIdx < lineAssign.length; chIdx++) {
-          const code = lineAssign.charCodeAt(chIdx);
-          if (code >= 65 && code <= 90) {
-            const tIdx = code - 55 - 1;
-            if (tIdx >= 0 && tIdx < teachers.length) {
-              htIndex = tIdx;
-              break;
-            }
-          }
-        }
-      }
-
-      if (cIdx < tabLines.length) {
-        const line = tabLines[cIdx];
-        const numSlots = Math.min(32, Math.floor(line.length / 3));
-
-        for (let slotIdx = 0; slotIdx < numSlots; slotIdx++) {
-          const b0 = decodeByteCode(line.charCodeAt(3 * slotIdx));
-          const b1 = decodeByteCode(line.charCodeAt(3 * slotIdx + 1));
-          const b2 = decodeByteCode(line.charCodeAt(3 * slotIdx + 2));
-
-          let cIdxMatch = null;
-          let tIdxMatch = null;
-          let rIdxMatch = null;
-
-          if (b2 > 0 && b2 <= courses.length) cIdxMatch = b2 - 1;
-          else if (b1 > 0 && b1 <= courses.length) cIdxMatch = b1 - 1;
-          else if (b0 > 0 && b0 <= courses.length) cIdxMatch = b0 - 1;
-
-          if (b0 > 0 && b0 <= teachers.length) tIdxMatch = b0 - 1;
-          if (b1 > 0 && b1 <= rooms.length) rIdxMatch = b1 - 1;
-
-          const cur = classCurriculums[cIdx] || [];
-          if (cIdxMatch !== null && tIdxMatch === null) {
-            const matchedCur = cur.find(item => item.courseIndex === cIdxMatch);
-            if (matchedCur && matchedCur.teacherIndex !== null) {
-              tIdxMatch = matchedCur.teacherIndex;
-            }
-          }
-
-          if (tIdxMatch === null) {
-            tIdxMatch = htIndex;
-          }
-
-          if (cIdxMatch !== null) {
-            const day = Math.floor(slotIdx / 7) + 1;
-            const period = (slotIdx % 7) + 1;
-            if (day <= 5 && period <= 7) {
-              const slotKey = `${cls.id}_${day}_${period}`;
-              scheduleMap[slotKey] = {
-                classId: cls.id,
-                className: cls.name,
-                day,
-                period,
-                courseIndex: cIdxMatch,
-                courseName: courses[cIdxMatch] || `科目${cIdxMatch + 1}`,
-                teacherIndex: tIdxMatch,
-                teacherName: tIdxMatch !== null ? (teachers[tIdxMatch] || '') : '',
-                roomIndex: rIdxMatch,
-                roomName: rIdxMatch !== null ? (rooms[rIdxMatch] || '') : ''
-              };
-            }
-          }
-        }
-      }
-    });
-    return scheduleMap;
-  }
-
   function getSampleData() {
+    if (window.STC_SAMPLE_DATA_115) {
+      return JSON.parse(JSON.stringify(window.STC_SAMPLE_DATA_115));
+    }
     if (window.STC_SAMPLE_DATA_114) {
       return JSON.parse(JSON.stringify(window.STC_SAMPLE_DATA_114));
     }
@@ -196,7 +108,6 @@ window.StcParser = (function () {
     parseClassNum,
     parseNameList,
     parseClassCur,
-    parseClassTab,
     getSampleData
   };
 })();
