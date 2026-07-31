@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>新世代 STC 智慧排課系統 (Web MVP)</title>
-  <meta name="description" content="相容 STC 3.77 格式之現代化國中小智慧排課系統，提供手動拖拉微調、即時衝堂檢測與 CSP 多核心自動排課引擎">
+  <title>臺中市立西寧國民小學 (115-1) 智慧排課系統</title>
+  <meta name="description" content="臺中市立西寧國民小學 115-1 學期完整課表與智慧排課系統">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=115_v2">
 </head>
 <body>
 
@@ -20,8 +20,8 @@
     <div class="brand">
       <div class="brand-icon">STC</div>
       <div class="brand-text">
-        <h1>新世代 STC 智慧排課系統</h1>
-        <span>v3.77 Web MVP + CSP 智慧演算法</span>
+        <h1>西寧國小 115-1 智慧排課系統</h1>
+        <span>官方課表 100% 精確對接 (382 節)</span>
       </div>
     </div>
 
@@ -38,8 +38,8 @@
 
     <!-- Global Stat Badges -->
     <div class="stats-badges">
-      <div class="badge badge-info" id="badge-classes">🏫 29 班</div>
-      <div class="badge badge-info" id="badge-teachers">👨‍🏫 55 位教師</div>
+      <div class="badge badge-info" id="badge-classes">🏫 28 班</div>
+      <div class="badge badge-info" id="badge-teachers">👨‍🏫 40 位教師</div>
       <div class="badge badge-success" id="badge-conflicts">✔ 0 衝突</div>
     </div>
   </header>
@@ -65,7 +65,7 @@
           </div>
           <div class="input-group">
             <label for="master-search">關鍵字搜尋：</label>
-            <input type="text" id="master-search" placeholder="搜尋教師、科目或教室...">
+            <input type="text" id="master-search" placeholder="搜尋教師、科目或班級...">
           </div>
         </div>
         <div class="toolbar-right">
@@ -195,7 +195,6 @@
     <!-- 5. 排課規則與限制條件 (Config View) -->
     <section id="config-view" class="view-section">
       <div class="dashboard-grid">
-        <!-- Teacher Unavailability Card -->
         <div class="card" style="grid-column: span 2;">
           <div class="card-title">🚫 教師不排課時段設定</div>
           <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
@@ -223,7 +222,6 @@
           </div>
         </div>
 
-        <!-- Rules Config Card -->
         <div class="card">
           <div class="card-title">⚙️ 軟硬性排課偏好</div>
           <div style="display: flex; flex-direction: column; gap: 1rem;">
@@ -263,19 +261,19 @@
     <section id="import-view" class="view-section">
       <div class="dashboard-grid">
         <div class="card">
-          <div class="card-title">📂 載入內建 STC 範例資料</div>
+          <div class="card-title">📂 載入西寧國小 115-1 官方完整課表</div>
           <p style="color: var(--text-sub); font-size: 0.85rem; margin-bottom: 1rem;">
-            一鍵載入您現有的 `Ys114-1` (西寧國小 29班/55位教師) 或 `Ys115-1` 排課資料。
+            一鍵載入官方 `臺中市立西寧國民小學(115-1)完整課表.csv` (382 節排課對接)。
           </p>
           <div style="display: flex; gap: 0.75rem;">
-            <button class="btn btn-primary" id="btn-load-sample-114">載入 114-1 學期資料</button>
+            <button class="btn btn-primary" id="btn-load-sample-114">重新載入 115-1 官方課表</button>
           </div>
         </div>
 
         <div class="card">
           <div class="card-title">📁 本地 STC 檔案選擇 (匯入)</div>
           <p style="color: var(--text-sub); font-size: 0.85rem; margin-bottom: 1rem;">
-            選取您的 `Ys114-1` 資料夾中的 `ClassNum`, `CoursNam`, `TeachNam`, `RoomNam`, `ClassCur` 等檔案。
+            選取您的 STC 資料夾中的 `ClassNum`, `CoursNam`, `TeachNam`, `RoomNam`, `ClassCur`, `ClassTab` 檔案。
           </p>
           <input type="file" id="stc-file-input" multiple accept="*">
           <div id="file-import-status" style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--accent-success);"></div>
@@ -298,10 +296,10 @@
 
   </main>
 
-  <!-- Load JS Scripts -->
-  <script src="sampleData.js"></script>
-  <script src="stcParser.js"></script>
-  <script src="schedulerEngine.js"></script>
-  <script src="app.js"></script>
+  <!-- Load JS Scripts with cache busters -->
+  <script src="sampleData.js?v=115_v2"></script>
+  <script src="stcParser.js?v=115_v2"></script>
+  <script src="schedulerEngine.js?v=115_v2"></script>
+  <script src="app.js?v=115_v2"></script>
 </body>
 </html>
