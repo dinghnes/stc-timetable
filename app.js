@@ -9,8 +9,8 @@
   let teacherUnavailability = {};
   let activeTab = 'master-view';
 
-  const STORAGE_KEY_MAP = 'STC_SAVED_SCHEDULE_MAP_115';
-  const STORAGE_KEY_UNAVAIL = 'STC_SAVED_UNAVAILABILITY_115';
+  const STORAGE_KEY_MAP = 'STC_SAVED_SCHEDULE_MAP_115_V4';
+  const STORAGE_KEY_UNAVAIL = 'STC_SAVED_UNAVAILABILITY_115_V4';
 
   // Selection states
   let selectedClassId = 0;
@@ -91,15 +91,13 @@
     document.getElementById('btn-print-master').addEventListener('click', () => window.print());
 
     document.getElementById('btn-load-sample-114').addEventListener('click', () => {
-      if (confirm('確定要重新恢復為 115-1 官方原始課表嗎？（現有修改將重置）')) {
-        localStorage.removeItem(STORAGE_KEY_MAP);
-        localStorage.removeItem(STORAGE_KEY_UNAVAIL);
-        teacherUnavailability = {};
-        const sample = StcParser.getSampleData();
-        if (sample) {
-          loadDataset(sample);
-          alert('已成功恢復為 115-1 官方原始課表！');
-        }
+      localStorage.removeItem(STORAGE_KEY_MAP);
+      localStorage.removeItem(STORAGE_KEY_UNAVAIL);
+      teacherUnavailability = {};
+      const sample = StcParser.getSampleData();
+      if (sample) {
+        loadDataset(sample, true);
+        alert('已成功重新載入 115-1 官方課表（含電腦教室、音樂教室等專科教室對應）！');
       }
     });
 
@@ -135,11 +133,11 @@
     return null;
   }
 
-  function loadDataset(data) {
+  function loadDataset(data, forceDefault = false) {
     dataset = data;
     populateDropdowns();
 
-    const localSavedMap = loadFromLocalStorage();
+    const localSavedMap = forceDefault ? null : loadFromLocalStorage();
 
     if (localSavedMap && Object.keys(localSavedMap).length > 0) {
       scheduleMap = localSavedMap;
@@ -441,15 +439,31 @@
     const body = document.getElementById('room-grid-body');
     if (!dataset) return;
 
+    const selectedRoomName = dataset.rooms[selectedRoomIndex];
+
     let html = '';
     for (let p = 1; p <= 7; p++) {
       html += `<tr><td class="period-header">第 ${p} 節</td>`;
       for (let d = 1; d <= 5; d++) {
         let matchedItem = null;
         for (const [key, item] of Object.entries(scheduleMap)) {
-          if (item && item.roomIndex === selectedRoomIndex) {
-            const parts = key.split('_');
-            if (parseInt(parts[1], 10) === d && parseInt(parts[2], 10) === p) {
+          if (!item) continue;
+          const parts = key.split('_');
+          const slotDay = parseInt(parts[1], 10);
+          const slotPeriod = parseInt(parts[2], 10);
+
+          if (slotDay === d && slotPeriod === p) {
+            // Match roomIndex or roomName
+            if (item.roomIndex === selectedRoomIndex || item.roomName === selectedRoomName) {
+              matchedItem = item;
+              break;
+            }
+            // Fallback match: if course is 資訊/電腦 and room is 電腦教室
+            if (selectedRoomName === '電腦教室' && (item.courseName.includes('資訊') || item.courseName.includes('電腦'))) {
+              matchedItem = item;
+              break;
+            }
+            if (selectedRoomName === '音樂教室' && item.courseName.includes('音樂')) {
               matchedItem = item;
               break;
             }
@@ -460,7 +474,7 @@
           html += `<td>
             <div class="course-card" data-type="science">
               <div class="course-title">${matchedItem.className}</div>
-              <div class="course-meta">${matchedItem.courseName} (${matchedItem.teacherName})</div>
+              <div class="course-meta">${matchedItem.courseName} (${matchedItem.teacherName || '無'})</div>
             </div>
           </td>`;
         } else {
@@ -563,7 +577,6 @@
     link.click();
   }
 
-  // Handle CSV File Upload Import
   function handleCSVImport(e) {
     const file = e.target.files[0];
     if (!file) return;
@@ -577,8 +590,8 @@
       const parsedData = StcParser.parseCSVText(csvContent);
 
       if (parsedData) {
-        localStorage.removeItem(STORAGE_KEY_MAP); // clear old saved map
-        loadDataset(parsedData);
+        localStorage.removeItem(STORAGE_KEY_MAP);
+        loadDataset(parsedData, true);
         saveToLocalStorage();
         status.innerText = `✔ CSV 匯入成功！已對接 ${parsedData.classes.length} 班、${parsedData.teachers.length} 位教師與 ${Object.keys(parsedData.preScheduledMap).length} 節排課！`;
       } else {
@@ -588,7 +601,6 @@
     reader.readAsText(file, 'big5');
   }
 
-  // Handle STC Folder Raw File Upload Import
   function handleFileImport(e) {
     const files = Array.from(e.target.files);
     if (files.length === 0) return;
@@ -645,7 +657,7 @@
           };
 
           localStorage.removeItem(STORAGE_KEY_MAP);
-          loadDataset(customDataset);
+          loadDataset(customDataset, true);
           saveToLocalStorage();
           status.innerText = `✔ 匯入成功！已還原 ${Object.keys(preScheduledMap || {}).length} 節既存課表與 ${teachers.length} 位教師課表！已自動存檔！`;
         }
