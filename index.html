@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=115_v2">
+  <link rel="stylesheet" href="style.css?v=115_v3">
 </head>
 <body>
 
@@ -33,7 +33,7 @@
       <button class="nav-tab" data-tab="room-view">🏢 專科教室</button>
       <button class="nav-tab" data-tab="config-view">⚙️ 排課規則</button>
       <button class="nav-tab" data-tab="solver-view">⚡ 智慧排課</button>
-      <button class="nav-tab" data-tab="import-view">📁 檔案對接</button>
+      <button class="nav-tab" data-tab="import-view">📁 檔案對接/匯入</button>
     </nav>
 
     <!-- Global Stat Badges -->
@@ -260,24 +260,36 @@
     <!-- 7. 資料對接與檔案匯入 (Import View) -->
     <section id="import-view" class="view-section">
       <div class="dashboard-grid">
+
+        <!-- 1. CSV File Import -->
         <div class="card">
-          <div class="card-title">📂 載入西寧國小 115-1 官方完整課表</div>
+          <div class="card-title">📊 匯入 CSV 課表檔（學務系統 / Excel 課表）</div>
           <p style="color: var(--text-sub); font-size: 0.85rem; margin-bottom: 1rem;">
-            一鍵載入官方 `臺中市立西寧國民小學(115-1)完整課表.csv` (382 節排課對接)。
+            選擇您的 `完整課表.csv` 或學務系統匯出檔，即刻載入對應之課表與教師資料。
           </p>
-          <div style="display: flex; gap: 0.75rem;">
-            <button class="btn btn-primary" id="btn-load-sample-114">重新載入 115-1 官方課表</button>
-          </div>
+          <input type="file" id="csv-file-input" accept=".csv" style="margin-bottom: 0.5rem;">
+          <div id="csv-import-status" style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--accent-success);"></div>
         </div>
 
+        <!-- 2. STC Raw Folder Files Import -->
         <div class="card">
-          <div class="card-title">📁 本地 STC 檔案選擇 (匯入)</div>
+          <div class="card-title">📁 匯入 STC 傳統資料夾檔案</div>
           <p style="color: var(--text-sub); font-size: 0.85rem; margin-bottom: 1rem;">
-            選取您的 STC 資料夾中的 `ClassNum`, `CoursNam`, `TeachNam`, `RoomNam`, `ClassCur`, `ClassTab` 檔案。
+            選取 STC 系統的 `ClassNum`, `CoursNam`, `TeachNam`, `RoomNam`, `ClassCur`, `ClassTab` 檔案。
           </p>
-          <input type="file" id="stc-file-input" multiple accept="*">
-          <div id="file-import-status" style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--accent-success);"></div>
+          <input type="file" id="stc-file-input" multiple accept="*" style="margin-bottom: 0.5rem;">
+          <div id="file-import-status" style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--accent-success);"></div>
         </div>
+
+        <!-- 3. Default Sample Restore -->
+        <div class="card">
+          <div class="card-title">🔄 恢復 115-1 官方預設課表</div>
+          <p style="color: var(--text-sub); font-size: 0.85rem; margin-bottom: 1rem;">
+            一鍵重置並載入原始西寧國小 115-1 官方完整課表。
+          </p>
+          <button class="btn btn-primary" id="btn-load-sample-114">恢復 115-1 官方課表</button>
+        </div>
+
       </div>
     </section>
 
@@ -297,9 +309,9 @@
   </main>
 
   <!-- Load JS Scripts with cache busters -->
-  <script src="sampleData.js?v=115_v2"></script>
-  <script src="stcParser.js?v=115_v2"></script>
-  <script src="schedulerEngine.js?v=115_v2"></script>
-  <script src="app.js?v=115_v2"></script>
+  <script src="sampleData.js?v=115_v3"></script>
+  <script src="stcParser.js?v=115_v3"></script>
+  <script src="schedulerEngine.js?v=115_v3"></script>
+  <script src="app.js?v=115_v3"></script>
 </body>
 </html>

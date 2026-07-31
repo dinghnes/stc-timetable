@@ -1,5 +1,5 @@
 /**
- * STC Smart Timetable Application Logic (UI, State, Drag & Drop, Renderers, Auto-Save)
+ * STC Smart Timetable Application Logic (UI, State, Drag & Drop, Renderers, Auto-Save, CSV & STC Import)
  */
 
 (function () {
@@ -103,7 +103,9 @@
       }
     });
 
+    // File Upload Inputs
     document.getElementById('stc-file-input').addEventListener('change', handleFileImport);
+    document.getElementById('csv-file-input').addEventListener('change', handleCSVImport);
   }
 
   // Persistent LocalStorage Save & Load
@@ -137,7 +139,6 @@
     dataset = data;
     populateDropdowns();
 
-    // Check if user has saved custom edits in LocalStorage!
     const localSavedMap = loadFromLocalStorage();
 
     if (localSavedMap && Object.keys(localSavedMap).length > 0) {
@@ -381,7 +382,7 @@
           delete scheduleMap[draggedSource.slotKey];
         }
 
-        saveToLocalStorage(); // Auto save on drag & drop!
+        saveToLocalStorage();
         const conflicts = SchedulerEngine.detectConflicts(scheduleMap, teacherUnavailability);
         updateBadges(conflicts);
         renderClassGrid();
@@ -500,7 +501,7 @@
           teacherUnavailability[uKey] = true;
         }
 
-        saveToLocalStorage(); // Save unavailability rules automatically!
+        saveToLocalStorage();
         renderUnavailabilityGrid();
         const conflicts = SchedulerEngine.detectConflicts(scheduleMap, teacherUnavailability);
         updateBadges(conflicts);
@@ -562,6 +563,32 @@
     link.click();
   }
 
+  // Handle CSV File Upload Import
+  function handleCSVImport(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const status = document.getElementById('csv-import-status');
+    status.innerText = `讀取中 (${file.name})...`;
+
+    const reader = new FileReader();
+    reader.onload = (evt) => {
+      const csvContent = evt.target.result;
+      const parsedData = StcParser.parseCSVText(csvContent);
+
+      if (parsedData) {
+        localStorage.removeItem(STORAGE_KEY_MAP); // clear old saved map
+        loadDataset(parsedData);
+        saveToLocalStorage();
+        status.innerText = `✔ CSV 匯入成功！已對接 ${parsedData.classes.length} 班、${parsedData.teachers.length} 位教師與 ${Object.keys(parsedData.preScheduledMap).length} 節排課！`;
+      } else {
+        status.innerText = `❌ CSV 格式解析失敗，請確認標頭欄位包含：週次,節次,年級,班級,教師姓名,校訂課程名稱`;
+      }
+    };
+    reader.readAsText(file, 'big5');
+  }
+
+  // Handle STC Folder Raw File Upload Import
   function handleFileImport(e) {
     const files = Array.from(e.target.files);
     if (files.length === 0) return;
@@ -617,6 +644,7 @@
             classes, courses, teachers, rooms, classCurriculums, preScheduledMap
           };
 
+          localStorage.removeItem(STORAGE_KEY_MAP);
           loadDataset(customDataset);
           saveToLocalStorage();
           status.innerText = `✔ 匯入成功！已還原 ${Object.keys(preScheduledMap || {}).length} 節既存課表與 ${teachers.length} 位教師課表！已自動存檔！`;

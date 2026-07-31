@@ -93,6 +93,98 @@ window.StcParser = (function () {
     return curriculums;
   }
 
+  /**
+   * Parse CSV File Text (e.g. 完整課表.csv)
+   */
+  function parseCSVText(csvContent) {
+    const lines = csvContent.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
+    if (lines.length <= 1) return null;
+
+    const dayMap = { '週一': 1, '週二': 2, '週三': 3, '週四': 4, '週五': 5, '一': 1, '二': 2, '三': 3, '四': 4, '五': 5 };
+    const periodMap = { '第一節': 1, '第二節': 2, '第三節': 3, '第四節': 4, '第五節': 5, '第六節': 6, '第七節': 7, '第八節': 8, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7 };
+    const gradeMap = { '一年級': 1, '二年級': 2, '三年級': 3, '四年級': 4, '五年級': 5, '六年級': 6, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6 };
+
+    // Helper to strip quotes
+    const clean = s => s ? s.replace(/^"/, '').replace(/"$/, '').trim() : '';
+
+    const rows = [];
+    const classSet = new Set();
+    const teacherSet = new Set();
+    const courseSet = new Set();
+
+    for (let i = 1; i < lines.length; i++) {
+      const parts = lines[i].split(',').map(clean);
+      if (parts.length >= 6) {
+        const dayStr = parts[0];
+        const periodStr = parts[1];
+        const gradeStr = parts[2];
+        const classStr = parts[3];
+        const tName = parts[4];
+        const cName = parts[5];
+
+        const day = dayMap[dayStr] || 1;
+        const period = periodMap[periodStr] || 1;
+        const grade = gradeMap[gradeStr] || 1;
+        const cNum = parseInt(classStr.replace('第', '').replace('班', ''), 10) || 1;
+        const className = `${grade}年${cNum}班`;
+
+        classSet.add(className);
+        if (tName) teacherSet.add(tName);
+        if (cName) courseSet.add(cName);
+
+        rows.push({ day, period, grade, cNum, className, tName, cName });
+      }
+    }
+
+    const sortedClassNames = Array.from(classSet).sort();
+    const classes = sortedClassNames.map((name, id) => {
+      const match = name.match(/(\d+)年(\d+)班/);
+      return { id, grade: match ? parseInt(match[1], 10) : 1, classNum: match ? parseInt(match[2], 10) : 1, name };
+    });
+
+    const teachers = Array.from(teacherSet).sort();
+    const courses = Array.from(courseSet).sort();
+    const rooms = ["音樂教室", "英語教室", "自然教室1", "自然教室2", "圖書室1", "圖書室2", "電腦教室"];
+
+    const classIdMap = {};
+    classes.forEach(c => classIdMap[c.name] = c.id);
+    const teacherIdMap = {};
+    teachers.forEach((t, i) => teacherIdMap[t] = i);
+    const courseIdMap = {};
+    courses.forEach((c, i) => courseIdMap[c] = i);
+
+    const scheduleMap = {};
+    rows.forEach(r => {
+      const cid = classIdMap[r.className];
+      const tid = teacherIdMap[r.tName];
+      const cidx = courseIdMap[r.cName];
+
+      if (cid !== undefined) {
+        const slotKey = `${cid}_${r.day}_${r.period}`;
+        scheduleMap[slotKey] = {
+          classId: cid,
+          className: r.className,
+          day: r.day,
+          period: r.period,
+          courseIndex: cidx,
+          courseName: r.cName,
+          teacherIndex: tid,
+          teacherName: r.tName,
+          roomIndex: null,
+          roomName: ''
+        };
+      }
+    });
+
+    return {
+      academicYear: '匯入課表',
+      schoolName: '西寧國小',
+      classes, courses, teachers, rooms,
+      classCurriculums: [],
+      preScheduledMap: scheduleMap
+    };
+  }
+
   function getSampleData() {
     if (window.STC_SAMPLE_DATA_115) {
       return JSON.parse(JSON.stringify(window.STC_SAMPLE_DATA_115));
@@ -108,6 +200,7 @@ window.StcParser = (function () {
     parseClassNum,
     parseNameList,
     parseClassCur,
+    parseCSVText,
     getSampleData
   };
 })();
