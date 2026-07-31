@@ -16,9 +16,8 @@
   let configTeacherIndex = 0;
 
   // Drag and Drop state
-  let draggedSource = null; // { classId, day, period, item }
+  let draggedSource = null;
 
-  // Course Types for Color Badges
   function getCourseType(name) {
     if (!name) return '';
     if (name.includes('國語')) return 'chinese';
@@ -30,21 +29,17 @@
     return '';
   }
 
-  // Initialize App
   document.addEventListener('DOMContentLoaded', () => {
     initTabs();
     initEventListeners();
 
-    // Auto-load sample 114-1 dataset
+    // Auto-load sample 114-1 dataset with pre-scheduled ClassTab map!
     const sample = StcParser.getSampleData();
     if (sample) {
       loadDataset(sample);
-      // Run auto-scheduler once on load to generate an initial 0-conflict schedule
-      runAutoScheduler(false);
     }
   });
 
-  // Tab Navigation
   function initTabs() {
     const tabs = document.querySelectorAll('.nav-tab');
     tabs.forEach(tab => {
@@ -62,9 +57,7 @@
     });
   }
 
-  // Event Listeners
   function initEventListeners() {
-    // Select dropdowns
     document.getElementById('class-select').addEventListener('change', (e) => {
       selectedClassId = parseInt(e.target.value, 10);
       renderClassGrid();
@@ -85,49 +78,49 @@
       renderUnavailabilityGrid();
     });
 
-    // Master Filters
     document.getElementById('master-grade-filter').addEventListener('change', renderMasterGrid);
     document.getElementById('master-search').addEventListener('input', renderMasterGrid);
 
-    // Auto Solver
     document.getElementById('btn-run-solver').addEventListener('click', () => runAutoScheduler(true));
     document.getElementById('btn-reset-schedule').addEventListener('click', resetSchedule);
 
-    // CSV & Print
     document.getElementById('btn-export-csv').addEventListener('click', exportCSV);
     document.getElementById('btn-print-master').addEventListener('click', () => window.print());
 
-    // Load Sample Button
     document.getElementById('btn-load-sample-114').addEventListener('click', () => {
       const sample = StcParser.getSampleData();
       if (sample) {
         loadDataset(sample);
-        runAutoScheduler(true);
-        alert('已成功載入 114-1 學期範例資料！');
+        alert('已成功載入 114-1 學期既存排課資料（411 節已排課與教師課表）！');
       }
     });
 
-    // File Input Import
     document.getElementById('stc-file-input').addEventListener('change', handleFileImport);
   }
 
-  // Load Dataset into State
   function loadDataset(data) {
     dataset = data;
     populateDropdowns();
-    updateBadges();
+
+    // Use pre-scheduled map from ClassTab if available!
+    if (data.preScheduledMap && Object.keys(data.preScheduledMap).length > 0) {
+      scheduleMap = data.preScheduledMap;
+      const conflicts = SchedulerEngine.detectConflicts(scheduleMap, teacherUnavailability);
+      updateBadges(conflicts);
+    } else {
+      runAutoScheduler(false);
+    }
+
     renderActiveView();
   }
 
   function populateDropdowns() {
     if (!dataset) return;
 
-    // Class dropdown
     const classSel = document.getElementById('class-select');
     classSel.innerHTML = dataset.classes.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
     if (dataset.classes.length > 0) selectedClassId = dataset.classes[0].id;
 
-    // Teacher dropdown
     const teacherSel = document.getElementById('teacher-select');
     const configTeacherSel = document.getElementById('config-teacher-select');
     const teacherOptions = dataset.teachers.map((t, idx) => `<option value="${idx}">${idx + 1}. ${t}</option>`).join('');
@@ -138,13 +131,11 @@
       configTeacherIndex = 0;
     }
 
-    // Room dropdown
     const roomSel = document.getElementById('room-select');
     roomSel.innerHTML = dataset.rooms.map((r, idx) => `<option value="${idx}">${r}</option>`).join('');
     if (dataset.rooms.length > 0) selectedRoomIndex = 0;
   }
 
-  // Run Auto Scheduler Engine
   function runAutoScheduler(showAlert = true) {
     if (!dataset) return;
     const res = SchedulerEngine.autoSchedule(dataset.classes, dataset.classCurriculums, teacherUnavailability);
@@ -153,11 +144,10 @@
     updateBadges(res.conflicts);
     renderActiveView();
 
-    // Show Solver Stats Box
     const statsBox = document.getElementById('solver-stats-box');
     statsBox.style.display = 'block';
     statsBox.innerHTML = `
-      <div style="font-weight: 700; color: #6ee7b7; margin-bottom: 0.5rem;">🎉 自動排課計算完成！</div>
+      <div style="font-weight: 700; color: #6ee7b7; margin-bottom: 0.5rem;">🎉 智慧重新排課完成！</div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.75rem; font-size: 0.85rem; color: var(--text-sub);">
         <div>耗時：<strong style="color: white;">${res.stats.timeTakenMs} ms</strong></div>
         <div>總課程單位：<strong style="color: white;">${res.stats.totalLessons} 節</strong></div>
@@ -167,7 +157,7 @@
     `;
 
     if (showAlert && res.stats.conflictCount === 0) {
-      alert(`自動排課成功！在 ${res.stats.timeTakenMs}ms 內完成 ${res.stats.totalLessons} 節課程排定，全校 0 衝堂！`);
+      alert(`智慧重新排課成功！在 ${res.stats.timeTakenMs}ms 內完成 ${res.stats.totalLessons} 節課程排定，全校 0 衝堂！`);
     }
   }
 
@@ -179,7 +169,6 @@
     }
   }
 
-  // Render Active View
   function renderActiveView() {
     if (!dataset) return;
     switch (activeTab) {
@@ -191,7 +180,6 @@
     }
   }
 
-  // 1. Render Master Grid
   function renderMasterGrid() {
     const table = document.getElementById('master-grid-table');
     if (!dataset) return;
@@ -204,7 +192,6 @@
       filteredClasses = filteredClasses.filter(c => c.grade === parseInt(gradeFilter, 10));
     }
 
-    // Build Header (5 Days x 7 Periods)
     let html = `<thead><tr><th class="class-name-col">班級</th>`;
     for (let d = 1; d <= 5; d++) {
       const dayNames = ['一', '二', '三', '四', '五'];
@@ -228,7 +215,6 @@
           const item = scheduleMap[slotKey];
 
           if (item) {
-            // Apply search query filter highlight
             let match = true;
             if (searchQuery) {
               match = (item.courseName && item.courseName.toLowerCase().includes(searchQuery)) ||
@@ -254,7 +240,6 @@
     table.innerHTML = html;
   }
 
-  // 2. Render Class Grid (Interactive Drag & Drop)
   function renderClassGrid() {
     const body = document.getElementById('class-grid-body');
     if (!dataset) return;
@@ -277,7 +262,7 @@
         const item = scheduleMap[slotKey];
 
         if (p > maxP) {
-          html += `<td class="is-unavailable" title="低/中年級半天不排課"></td>`;
+          html += `<td class="is-unavailable" title="半天不排課"></td>`;
         } else {
           html += `<td data-class-id="${cls.id}" data-day="${d}" data-period="${p}" class="slot-cell">`;
           if (item) {
@@ -302,7 +287,6 @@
     attachDragAndDropListeners();
   }
 
-  // Attach Drag & Drop to Class Grid Slots
   function attachDragAndDropListeners() {
     const cards = document.querySelectorAll('.course-card');
     const cells = document.querySelectorAll('.slot-cell');
@@ -343,12 +327,11 @@
         const targetPeriod = parseInt(cell.getAttribute('data-period'), 10);
         const targetKey = `${targetClassId}_${targetDay}_${targetPeriod}`;
 
-        // Swap or Move!
         const sourceItem = scheduleMap[draggedSource.slotKey];
         const targetItem = scheduleMap[targetKey];
 
-        if (sourceItem) sourceItem.day = targetDay; sourceItem.period = targetPeriod;
-        if (targetItem) targetItem.day = draggedSource.item.day; targetItem.period = draggedSource.item.period;
+        if (sourceItem) { sourceItem.day = targetDay; sourceItem.period = targetPeriod; }
+        if (targetItem) { targetItem.day = draggedSource.item.day; targetItem.period = draggedSource.item.period; }
 
         scheduleMap[targetKey] = sourceItem;
         if (targetItem) {
@@ -357,7 +340,6 @@
           delete scheduleMap[draggedSource.slotKey];
         }
 
-        // Re-check conflicts and render
         const conflicts = SchedulerEngine.detectConflicts(scheduleMap, teacherUnavailability);
         updateBadges(conflicts);
         renderClassGrid();
@@ -365,7 +347,6 @@
     });
   }
 
-  // 3. Render Teacher Grid
   function renderTeacherGrid() {
     const body = document.getElementById('teacher-grid-body');
     const info = document.getElementById('teacher-load-info');
@@ -378,7 +359,6 @@
     for (let p = 1; p <= 7; p++) {
       html += `<tr><td class="period-header">第 ${p} 節</td>`;
       for (let d = 1; d <= 5; d++) {
-        // Search if teacher has a class in slot
         let matchedItem = null;
         for (const [key, item] of Object.entries(scheduleMap)) {
           if (item && item.teacherIndex === selectedTeacherIndex) {
@@ -414,7 +394,6 @@
     info.innerHTML = `👨‍🏫 <strong>${teacherName}</strong> 老師：本週共 <strong>${totalHours}</strong> 節課`;
   }
 
-  // 4. Render Room Grid
   function renderRoomGrid() {
     const body = document.getElementById('room-grid-body');
     if (!dataset) return;
@@ -450,7 +429,6 @@
     body.innerHTML = html;
   }
 
-  // 5. Render Unavailability Grid (Constraints Matrix)
   function renderUnavailabilityGrid() {
     const body = document.getElementById('unavailability-grid-body');
     if (!dataset) return;
@@ -468,7 +446,6 @@
 
     body.innerHTML = html;
 
-    // Attach click toggle listeners
     document.querySelectorAll('.unavail-cell').forEach(cell => {
       cell.addEventListener('click', () => {
         const d = cell.getAttribute('data-day');
@@ -488,7 +465,6 @@
     });
   }
 
-  // Update Topbar Badges & Conflict Drawer
   function updateBadges(conflicts = null) {
     if (!conflicts) {
       conflicts = SchedulerEngine.detectConflicts(scheduleMap, teacherUnavailability);
@@ -523,7 +499,6 @@
     }
   }
 
-  // CSV Export with UTF-8 BOM
   function exportCSV() {
     if (!dataset) return;
     let csv = '\uFEFF班級,星期,節次,課程名稱,授課教師,專科教室\n';
@@ -544,7 +519,6 @@
     link.click();
   }
 
-  // Local File Upload Parsing
   function handleFileImport(e) {
     const files = Array.from(e.target.files);
     if (files.length === 0) return;
@@ -554,6 +528,7 @@
     let teachNamText = null;
     let roomNamText = null;
     let classCurLines = [];
+    let classTabLines = [];
 
     const status = document.getElementById('file-import-status');
     status.innerText = `讀取中 (${files.length} 個檔案)...`;
@@ -573,11 +548,12 @@
           roomNamText = evt.target.result;
         } else if (name.includes('ClassCur')) {
           classCurLines = evt.target.result.split(/\r?\n/);
+        } else if (name.includes('ClassTab')) {
+          classTabLines = evt.target.result.split(/\r?\n/);
         }
 
         readCount++;
         if (readCount === files.length) {
-          // Process parsed files
           const classesData = classNumText ? StcParser.parseClassNum(classNumText.split(/\r?\n/)) : null;
           const courses = coursNamText ? StcParser.parseNameList(coursNamText.split(/\r?\n/)) : dataset.courses;
           const teachers = teachNamText ? StcParser.parseNameList(teachNamText.split(/\r?\n/)) : dataset.teachers;
@@ -588,15 +564,18 @@
             ? StcParser.parseClassCur(classCurLines, courses, teachers, rooms, classes.length)
             : dataset.classCurriculums;
 
+          const preScheduledMap = classTabLines.length > 0
+            ? StcParser.parseClassTab(classTabLines, classes, courses, teachers, rooms, classCurriculums)
+            : null;
+
           const customDataset = {
             academicYear: '匯入資料',
             schoolName: '自訂學校',
-            classes, courses, teachers, rooms, classCurriculums
+            classes, courses, teachers, rooms, classCurriculums, preScheduledMap
           };
 
           loadDataset(customDataset);
-          runAutoScheduler(true);
-          status.innerText = `✔ 匯入成功！已更新 ${classes.length} 班級與 ${teachers.length} 位教師。`;
+          status.innerText = `✔ 匯入成功！已還原 ${Object.keys(preScheduledMap || {}).length} 節既存課表與 ${teachers.length} 位教師課表！`;
         }
       };
       reader.readAsText(file, 'big5');
