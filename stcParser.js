@@ -43,13 +43,26 @@ window.StcParser = (function () {
   }
 
   /**
-   * Parse ClassCur file (Curriculum assignments per class)
+   * Parse ClassCur file (Curriculum assignments per class & Homeroom teacher resolution)
    */
   function parseClassCur(curLines, courses, teachers, rooms, classCount) {
     const curriculums = [];
     for (let i = 0; i < classCount; i++) {
       const lineHours = curLines[2 * i] || '';
       const lineAssign = curLines[2 * i + 1] || '';
+
+      // Resolve Homeroom Teacher from Capital letter in assign line
+      let htIndex = null;
+      for (let chIdx = 0; chIdx < lineAssign.length; chIdx++) {
+        const code = lineAssign.charCodeAt(chIdx);
+        if (code >= 65 && code <= 90) { // 'A'..'Z'
+          const tIdx = code - 55 - 1; // 0-based index
+          if (tIdx >= 0 && tIdx < teachers.length) {
+            htIndex = tIdx;
+            break;
+          }
+        }
+      }
 
       const courseAssignments = [];
       const len = Math.min(17, lineHours.length);
@@ -74,13 +87,15 @@ window.StcParser = (function () {
           }
         }
 
+        const finalTeacherIndex = teacherIndex !== null ? teacherIndex : htIndex;
+
         if (hours > 0) {
           courseAssignments.push({
             courseIndex: k,
             courseName: courses[k] || `科目${k + 1}`,
             hours: hours,
-            teacherIndex: teacherIndex,
-            teacherName: teacherIndex !== null ? (teachers[teacherIndex] || `教師${teacherIndex + 1}`) : '',
+            teacherIndex: finalTeacherIndex,
+            teacherName: finalTeacherIndex !== null ? (teachers[finalTeacherIndex] || `教師${finalTeacherIndex + 1}`) : '',
             roomIndex: roomIndex,
             roomName: roomIndex !== null ? (rooms[roomIndex] || `教室${roomIndex + 1}`) : ''
           });
@@ -92,11 +107,26 @@ window.StcParser = (function () {
   }
 
   /**
-   * Parse pre-scheduled ClassTab lines
+   * Parse pre-scheduled ClassTab lines with complete Homeroom + Specialist teacher resolution
    */
-  function parseClassTab(tabLines, classes, courses, teachers, rooms, classCurriculums) {
+  function parseClassTab(tabLines, classes, courses, teachers, rooms, classCurriculums, curLines = []) {
     const scheduleMap = {};
     classes.forEach((cls, cIdx) => {
+      let htIndex = null;
+      if (2 * cIdx + 1 < curLines.length) {
+        const lineAssign = curLines[2 * cIdx + 1];
+        for (let chIdx = 0; chIdx < lineAssign.length; chIdx++) {
+          const code = lineAssign.charCodeAt(chIdx);
+          if (code >= 65 && code <= 90) {
+            const tIdx = code - 55 - 1;
+            if (tIdx >= 0 && tIdx < teachers.length) {
+              htIndex = tIdx;
+              break;
+            }
+          }
+        }
+      }
+
       if (cIdx < tabLines.length) {
         const line = tabLines[cIdx];
         const numSlots = Math.min(32, Math.floor(line.length / 3));
@@ -123,6 +153,10 @@ window.StcParser = (function () {
             if (matchedCur && matchedCur.teacherIndex !== null) {
               tIdxMatch = matchedCur.teacherIndex;
             }
+          }
+
+          if (tIdxMatch === null) {
+            tIdxMatch = htIndex;
           }
 
           if (cIdxMatch !== null) {
