@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新世代 STC 智慧排課系統 (Web MVP)</title>
+  <meta name="description" content="相容 STC 3.77 格式之現代化國中小智慧排課系統，提供手動拖拉微調、即時衝堂檢測與 CSP 多核心自動排課引擎">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-icon">STC</div>
+      <div class="brand-text">
+        <h1>新世代 STC 智慧排課系統</h1>
+        <span>v3.77 Web MVP + CSP 智慧演算法</span>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs" role="tablist">
+      <button class="nav-tab active" data-tab="master-view">📅 全校總課表</button>
+      <button class="nav-tab" data-tab="class-view">🏫 班級課表</button>
+      <button class="nav-tab" data-tab="teacher-view">👨‍🏫 教師課表</button>
+      <button class="nav-tab" data-tab="room-view">🏢 專科教室</button>
+      <button class="nav-tab" data-tab="config-view">⚙️ 排課規則</button>
+      <button class="nav-tab" data-tab="solver-view">⚡ 智慧排課</button>
+      <button class="nav-tab" data-tab="import-view">📁 檔案對接</button>
+    </nav>
+
+    <!-- Global Stat Badges -->
+    <div class="stats-badges">
+      <div class="badge badge-info" id="badge-classes">🏫 29 班</div>
+      <div class="badge badge-info" id="badge-teachers">👨‍🏫 55 位教師</div>
+      <div class="badge badge-success" id="badge-conflicts">✔ 0 衝突</div>
+    </div>
+  </header>
+
+  <!-- Main Workspace Container -->
+  <main class="main-container">
+
+    <!-- 1. 全校總課表 (Master Grid View) -->
+    <section id="master-view" class="view-section active">
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <div class="input-group">
+            <label for="master-grade-filter">年級篩選：</label>
+            <select id="master-grade-filter">
+              <option value="all">全部年級 (1-6年級)</option>
+              <option value="1">一年級</option>
+              <option value="2">二年級</option>
+              <option value="3">三年級</option>
+              <option value="4">四年級</option>
+              <option value="5">五年級</option>
+              <option value="6">六年級</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="master-search">關鍵字搜尋：</label>
+            <input type="text" id="master-search" placeholder="搜尋教師、科目或教室...">
+          </div>
+        </div>
+        <div class="toolbar-right">
+          <button class="btn btn-secondary" id="btn-export-csv">📥 匯出 CSV 課表</button>
+          <button class="btn btn-primary" id="btn-print-master">🖨️ 列印總表</button>
+        </div>
+      </div>
+
+      <div class="schedule-table-card">
+        <div class="table-responsive">
+          <table class="grid-table master-table" id="master-grid-table">
+            <!-- Dynamic master grid rendered by JS -->
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. 班級課表 (Class View with Drag & Drop) -->
+    <section id="class-view" class="view-section">
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <div class="input-group">
+            <label for="class-select">選擇班級：</label>
+            <select id="class-select">
+              <!-- Class options loaded by JS -->
+            </select>
+          </div>
+        </div>
+        <div class="toolbar-right">
+          <span style="font-size: 0.85rem; color: var(--text-muted);">💡 提示：按住課程卡片可直接拖拉調課，系統將即時檢測衝堂。</span>
+          <button class="btn btn-secondary" id="btn-clear-class">清空本班課表</button>
+        </div>
+      </div>
+
+      <div class="schedule-table-card">
+        <div class="table-responsive">
+          <table class="grid-table" id="class-grid-table">
+            <thead>
+              <tr>
+                <th class="period-header">節次 / 時間</th>
+                <th>星期一</th>
+                <th>星期二</th>
+                <th>星期三</th>
+                <th>星期四</th>
+                <th>星期五</th>
+              </tr>
+            </thead>
+            <tbody id="class-grid-body">
+              <!-- Rendered by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 教師個人課表 (Teacher View) -->
+    <section id="teacher-view" class="view-section">
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <div class="input-group">
+            <label for="teacher-select">選擇教師：</label>
+            <select id="teacher-select">
+              <!-- Teacher options loaded by JS -->
+            </select>
+          </div>
+          <div id="teacher-load-info" style="font-size: 0.85rem; color: #a5b4fc; margin-left: 1rem;">
+            <!-- Teacher hours load summary -->
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule-table-card">
+        <div class="table-responsive">
+          <table class="grid-table" id="teacher-grid-table">
+            <thead>
+              <tr>
+                <th class="period-header">節次 / 時間</th>
+                <th>星期一</th>
+                <th>星期二</th>
+                <th>星期三</th>
+                <th>星期四</th>
+                <th>星期五</th>
+              </tr>
+            </thead>
+            <tbody id="teacher-grid-body">
+              <!-- Rendered by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 專科教室課表 (Room View) -->
+    <section id="room-view" class="view-section">
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <div class="input-group">
+            <label for="room-select">選擇專科教室：</label>
+            <select id="room-select">
+              <!-- Room options loaded by JS -->
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule-table-card">
+        <div class="table-responsive">
+          <table class="grid-table" id="room-grid-table">
+            <thead>
+              <tr>
+                <th class="period-header">節次 / 時間</th>
+                <th>星期一</th>
+                <th>星期二</th>
+                <th>星期三</th>
+                <th>星期四</th>
+                <th>星期五</th>
+              </tr>
+            </thead>
+            <tbody id="room-grid-body">
+              <!-- Rendered by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 排課規則與限制條件 (Config View) -->
+    <section id="config-view" class="view-section">
+      <div class="dashboard-grid">
+        <!-- Teacher Unavailability Card -->
+        <div class="card" style="grid-column: span 2;">
+          <div class="card-title">🚫 教師不排課時段設定</div>
+          <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+            <label for="config-teacher-select">選擇教師：</label>
+            <select id="config-teacher-select"></select>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">點擊格子可切換「允許排課 / 禁排」</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="grid-table unavailability-matrix" id="unavailability-grid">
+              <thead>
+                <tr>
+                  <th class="period-header">節次</th>
+                  <th>星期一</th>
+                  <th>星期二</th>
+                  <th>星期三</th>
+                  <th>星期四</th>
+                  <th>星期五</th>
+                </tr>
+              </thead>
+              <tbody id="unavailability-grid-body">
+                <!-- Rendered by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Rules Config Card -->
+        <div class="card">
+          <div class="card-title">⚙️ 軟硬性排課偏好</div>
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <label><input type="checkbox" id="rule-core-morning" checked> 主要科目（國語/數學）優先安排於上午 (1-4節)</label>
+            <label><input type="checkbox" id="rule-spread-days" checked> 同科目時數分配於不同星期，避免集中同一天</label>
+            <label><input type="checkbox" id="rule-balance-teacher" checked> 教師每日授課節數負擔均勻化</label>
+            <label><input type="checkbox" id="rule-consecutive-art"> 藝術/體育/實驗課程允許安排 2 節連上</label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. 智慧自動排課引擎 (Solver View) -->
+    <section id="solver-view" class="view-section">
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-title">⚡ CSP 多核心智慧排課控制台</div>
+        <p style="color: var(--text-sub); font-size: 0.9rem; margin-bottom: 1.25rem;">
+          自動排課演算法將考量「全校教師不衝堂」、「專科教室容納限制」、「半天/全天節數限制」與「教師禁排時段」，於數秒內輸出最適課表。
+        </p>
+
+        <div style="display: flex; gap: 1rem; align-items: center;">
+          <button class="btn btn-primary" id="btn-run-solver" style="padding: 0.75rem 1.75rem; font-size: 1rem;">
+            🚀 開始智慧全校排課
+          </button>
+          <button class="btn btn-danger" id="btn-reset-schedule">
+            🗑️ 清空所有現存課表
+          </button>
+        </div>
+
+        <div id="solver-stats-box" style="margin-top: 1.25rem; display: none; background: rgba(15, 23, 42, 0.7); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+          <!-- Dynamic solver results metrics -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. 資料對接與檔案匯入 (Import View) -->
+    <section id="import-view" class="view-section">
+      <div class="dashboard-grid">
+        <div class="card">
+          <div class="card-title">📂 載入內建 STC 範例資料</div>
+          <p style="color: var(--text-sub); font-size: 0.85rem; margin-bottom: 1rem;">
+            一鍵載入您現有的 `Ys114-1` (西寧國小 29班/55位教師) 或 `Ys115-1` 排課資料。
+          </p>
+          <div style="display: flex; gap: 0.75rem;">
+            <button class="btn btn-primary" id="btn-load-sample-114">載入 114-1 學期資料</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">📁 本地 STC 檔案選擇 (匯入)</div>
+          <p style="color: var(--text-sub); font-size: 0.85rem; margin-bottom: 1rem;">
+            選取您的 `Ys114-1` 資料夾中的 `ClassNum`, `CoursNam`, `TeachNam`, `RoomNam`, `ClassCur` 等檔案。
+          </p>
+          <input type="file" id="stc-file-input" multiple accept="*">
+          <div id="file-import-status" style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--accent-success);"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conflict Warning Drawer / Panel -->
+    <div class="conflict-panel" id="conflict-panel" style="display: none;">
+      <div class="conflict-header">
+        <div class="conflict-title">
+          <span>⚠️ 衝突檢測警示儀表板</span>
+          <span class="badge badge-danger" id="conflict-count-badge">0 個衝突</span>
+        </div>
+      </div>
+      <div class="conflict-list" id="conflict-list-body">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Load JS Scripts -->
+  <script src="sampleData.js"></script>
+  <script src="stcParser.js"></script>
+  <script src="schedulerEngine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

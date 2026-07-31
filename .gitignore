@@ -1,0 +1,14 @@
+# STC Binary & Doc files (ignore local legacy executable & binary data)
+*.EXE
+*.exe
+*.doc
+*.INI
+*.ini
+Ys107-1/
+Ys108-1/
+Ys109-1/
+Ys110-1/
+Ys112-1/
+Ys113-1/
+Ys114-1/
+Ys115-1/
